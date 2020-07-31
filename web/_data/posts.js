@@ -23,9 +23,7 @@ async function getPosts () {
     slug,
     mainImage {
       alt, 
-      asset {
-        _ref
-      }
+      asset
     },
     excerpt,
     body[]{
