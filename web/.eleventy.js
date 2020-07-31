@@ -1,8 +1,23 @@
 const { DateTime } = require("luxon");
-const util = require('util')
+const util = require('util');
+const urlFor = require("./utils/imageUrl");
 const CleanCSS = require("clean-css");
+// const sanityImage = require('../../eleventy-plugin-sanity-image');
+// const sanityClient = require('./utils/sanityClient');
+
 
 module.exports = function(eleventyConfig) {
+
+  eleventyConfig.addShortcode('imageUrlFor', (image, width="400") => {
+    return urlFor(image)
+    .width(width)
+  });
+
+
+  // eleventyConfig.addPlugin(sanityImage, {
+  //   client: sanityClient // This is your Sanity connection object
+  // });
+
 
   // https://www.11ty.io/docs/quicktips/inline-css/
   eleventyConfig.addFilter("cssmin", function(code) {
